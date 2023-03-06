@@ -25,15 +25,11 @@ function login (email, mdp) {
     .then(data => {
         console.log(data)
 
-        if (data.userId == 1) {
+        if (!!data.userId) {
             localStorage.setItem("token", data.token);
             location.href = "../../index.html";
           } else {
             error.innerText = " Erreur dans l’identifiant ou le mot de passe";
-            function msg() {
-              error.innerText = "";
-            }
-            setTimeout(msg, 50000); 
           }
     })
     .catch(err => console.error(err));
