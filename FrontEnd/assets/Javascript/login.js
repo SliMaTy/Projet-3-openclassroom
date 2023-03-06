@@ -16,7 +16,6 @@ function login (email, mdp) {
     }
     fetch('http://localhost:5678/api/users/login', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -25,6 +24,17 @@ function login (email, mdp) {
     .then(response => response.json())
     .then(data => {
         console.log(data)
+
+        if (data.userId == 1) {
+            localStorage.setItem("token", data.token);
+            location.href = "../../index.html";
+          } else {
+            error.innerText = " Erreur dans l’identifiant ou le mot de passe";
+            function msg() {
+              error.innerText = "";
+            }
+            setTimeout(msg, 50000); 
+          }
     })
     .catch(err => console.error(err));
 }
