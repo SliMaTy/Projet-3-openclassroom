@@ -37,7 +37,7 @@
 			<div class="gallery-modifier"></div>
 			<div class="bar"></div>
 			<ul>
-				<li><input class="ajouter" type="button" value="Ajouter une photo"></li>
+				<li><input class="ajouter" type="button" value="Ajouter une photo" data-modal="modal2"></li>
 				<li><input class="supprimer" type="button" value="Supprimer la galerie"></li>
 			</ul>
 		</div>
@@ -51,21 +51,37 @@
 
 	<aside id="modal2" class="modal" aria-hidden="true" style="display: none">
 		<div class="modal-wrapper">
-			<div class="modal-close">
+			<h3>Ajout photo</h3>
+			<div class="modal-close" data-modal="close">
 				<div class="modal-close-barre"></div>
 				<div class="modal-close-barre"></div>
 			</div>
+			<form action="./assets/Pages/login.html" method="get">
+				<div class="fileImage">
+					<div class="fileImage-form">
+						<i class="fa-regular fa-image"></i>
+						<label for="fileButton">+ Ajouter photo</label>
+						<input name="image" id="fileButton" type="file" accept="image/png, image/jpg" style="display: none;" data-file>
+						<p>jpg, png : 4mo max</p>
+					</div>
+					<div class="file-image" data-file-image></div>
+				</div>
+				<div class="descriptionFiltre" id="descriptionFiltre">
+					<h4>Titre</h4>
+					<input name="titre" type="text" id="titleFile">
+					<h4>Catégorie</h4>
+					<select name="categorie" data-select-category>
+						<option value="0"></option>
+					</select>
+				</div>
+			</form>
 			<div class="bar"></div>
-			<li><input class="" type="button" value="Valider"></li>
-
+			<input type="submit" value="valider" data-input-valider>
 		</div>
 	</aside>
 
-
-
-
-
 	<!-- /* page modale 2 */ -->
+
 	<div class="container">
 		<header>
 
@@ -144,8 +160,11 @@
 		</nav>
 	</footer>
 
-	<script type="text/Javascript" src="./assets/Javascript/index.js"></script>
+
+
 	<script type="text/Javascript" src="./assets/Javascript/function.js"></script>
+	<script type="text/Javascript" src="./assets/Javascript/index.js"></script>
+
 </body>
 
 </html>

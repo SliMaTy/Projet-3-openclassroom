@@ -52,10 +52,11 @@ function createImageLogged(donnee) {
 // Utilisation de la route works/id pour supprimer une image
 function removeImage(id) {
     let token = localStorage.getItem("token")
+    console.log(token)
     fetch('http://localhost:5678/api/works/' + id, {
         method: 'DELETE',
         headers: {
-            'Authentication': token,
+            'Authorization': 'Bearer '+token,
             'Content-Type': 'application/json'
         },
     })
@@ -127,4 +128,47 @@ function login (email, mdp) {
           }
     })
     .catch(err => console.error(err));
+}
+
+
+// Récupérer une image et l'afficher depuis le fichier
+let imageUpload = document.querySelector ("[data-file-image]")
+let fileUpload = document.querySelector("[data-file]")
+let imageForm = document.querySelector (".fileImage-form")
+fileUpload.addEventListener("change", getImage)
+
+function getImage () {
+    const image = this.files[0]
+    let newImage = new Image(image.width, image.height)
+    newImage.src = URL.createObjectURL(image);
+    imageUpload.appendChild(newImage)
+    imageUpload.style.display = "block"
+    imageForm.style.display = "none"
+}
+
+
+// Afficher l'image du fichier dans la galerie
+function createImageFile () {
+    let figure = document.createElement ("figure");
+    let image = document.createElement ("img");
+
+    // Création de l'image issue du fichier
+    const imageFile = this.files[0]
+    let newImage = new Image(imageFile.width, imageFile.height)
+    newImage.src = URL.createObjectURL(imageFile);
+    image.setAttribute ("src", newImage.src);
+
+    // Récupération des inputs titre et catégories
+    let inputValue = document.getElementById("titleFile").value;
+    let selectElmt = document.getElementById("descriptionFiltre");
+    let valeurSelect = selectElmt.options[selectElmt.selectedIndex].value;
+
+    // Création figcaption
+    let figcaption = document.createElement ("figcaption");
+    figcaption.innerHTML = inputValue, valeurSelect;
+    figure.appendChild (image);
+    figure.appendChild (figcaption);
+    
+    let gallery = document.querySelector(".gallery");
+    gallery.appendChild (figure);
 }
