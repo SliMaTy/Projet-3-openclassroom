@@ -1,170 +1,213 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sophie Bluel - Architecte d'intérieur</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/icons/favicon.ico.png"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/f266b52627.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+
+  <body>
+    <div id="modifer"></div>
+    <!-- PAGE MODALE -->
+
+    <aside id="modal" class="modal" aria-hidden="true" style="display: none">
+      <div class="modal_trigger"></div>
+      <div class="modal_container js_modal_stop">
+        <button id="model_fermer">x</button>
+        <section class="model_body">
+          <i class="fa-solid fa-arrows-up-down-left-right"></i>
+          <h2 class="model_titre">Galerie photo</h2>
+          <div id="model_gallery"></div>
+          <div class="btn">
+            <button id="model_ajoute" class="model_ajoute">
+              Ajouter une photo
+            </button>
+            <button class="model_suprimer">Supprimer la galerie</button>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <!-- PAGE MODALE AJOUT DE PHOTO -->
+    <form
+      name="form_ajout"
+      method="post"
+      action="#"
+      id="modal_ajout"
+      class="modal"
+      aria-hidden="true"
+      style="display: none"
+      enctype="multipart/form-data"
+    >
+      <div class="modal_trigger"></div>
+      <div class="modal_container js_modal_stop">
+        <button id="model_fermer_ajouter">x</button>
+        <i id="left" class="fa-sharp fa-solid fa-arrow-left"></i>
+        <section class="model_body">
+          <h2 class="model_titre">Ajout photo</h2>
+          <div id="model_gallery_ajout">
+            <!-- Conteneur de l'ajout de photo -->
+            <div class="model_ajout">
+              <!-- Conteneur de l'affichage de l'image téléchargée -->
+              <div id="image_telecharger_images" style="display: none">
+                <div id="image_telecharger"></div>
+              </div>
+              <!-- Conteneur principal de l'ajout de photo -->
+              <div id="model_ajout_container" style="display: contents">
+                <img
+                  class="photo"
+                  src="./assets/images/photo.PNG"
+                  alt="image"
+                />
+                <!-- Champ de sélection de fichier pour l'image -->
+                <input
+                  name="image"
+                  type="file"
+                  id="img_input"
+                  accept="image/png , image/jpg  "
+                  class="input_img_btn"
+                />
+                <!-- Bouton d'ajout de photo -->
+                <button id="ajout" class="model_ajoute ajout">
+                  + Ajouter photo
+                </button>
+                <!-- Information sur le format de fichier accepté -->
+                <p>jpg, png : 4mo max</p>
+              </div>
+            </div>
+            <!-- Message d'erreur pour l'ajout de photo -->
+            <label id="msg_err"></label>
+            <!-- Champ de saisie pour le titre de la photo -->
+            <div class="input_modal_ajout">
+              <label>Titre</label>
+              <input name="title" id="input_model" class="input_model" />
+            </div>
+            <div class="input_modal_ajout">
+              <label>Catégorie</label>
+              <select
+                name="category"
+                id="categorie"
+                class="input_modal_ajout_choix"
+              >
+                <!-- Options pour les catégories -->
+                <option value="Objets">Objets</option>
+                <option value="Appartements">Appartements</option>
+                <option value="Hotels & restaurants">
+                  Hotels & restaurants
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="modal_ajout_valider">
+            <button type="submit" id="btn_valider" class="model_ajoute valider">
+              Valider
+            </button>
+          </div>
+        </section>
+      </div>
+      <!-- Fin du modal -->
+    </form>
+
+    <!-- HEADER + NAV  -->
+
+    <header>
+      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+      <nav>
+        <ul>
+          <li><a href="#portfolio_titre">projets</a></li>
+          <li><a href="#contact">contact</a></li>
+          <li><a id="login" href="./assets/pages/logIn.html">connexion</a></li>
+          <li><i class="fa-brands fa-instagram"></i></li>
+        </ul>
+      </nav>
+    </header>
 
 
-<head>
-	<meta charset="UTF-8">
-	<title>Sophie Bluel - Architecte d'intérieur</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
-		rel="stylesheet">
-	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/style.css">
-	<script src="https://kit.fontawesome.com/7007b59915.js" crossorigin="anonymous"></script>
-</head>
+    <main>
+      <div id="introduction">
+        <figure id="introduction_photo">
+          <img
+            src="./assets/images/sophie-bluel.png"
+            alt="poto de sophie-bluel "
+          />
+        </figure>
+        <article id="introduction_article">
+          <h2>Designer d'espace</h2>
+          <div class="paragraphe">
+            <p>
+              Je raconte votre histoire, je valorise vos idées. Je vous
+              accompagne de la conception à la livraison finale du chantier.
+            </p>
+            <p>
+              Chaque projet sera étudié en commun, de façon à mettre en valeur
+              les volumes, les matières et les couleurs dans le respect de
+              l’esprit des lieux et le choix adapté des matériaux. Le suivi du
+              chantier sera assuré dans le souci du détail, le respect du
+              planning et du budget.
+            </p>
+            <p>
+              En cas de besoin, une équipe pluridisciplinaire peut-être
+              constituée : architecte DPLG, décorateur(trice)
+            </p>
+          </div>
+        </article>
+      </div>
 
+      <!--  PORTFOLIO VIA API -->
+      <section id="portfolio">
+        <div id="portfolio_modifier">
+          <h2 id="portfolio_titre">Mes Projets</h2>
+        </div>
+        <div id="btn">
+          <button id="btn_tous">Tous</button>
+        </div>
+        <div class="gallery" id="gallery"></div>
+      </section>
 
-<body>
+      <!-- FORMULAIRE DE CONTACT -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Vous avez un projet ? Discutons-en !</p>
+        <form action="#" method="post">
+          <label for="name">Nom</label>
+          <input type="text" name="name" id="name" />
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" />
+          <label for="message">Message</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <input type="submit" value="Envoyer" />
+        </form>
+      </section>
+    </main>
 
-	<!-- /* barre admin */ -->
+    <!-- FOOTER -->
+    <footer>
+      <nav>
+        <ul>
+          <li>Mentions Légales</li>
+        </ul>
+      </nav>
+    </footer>
+    <!-- Fin du footer -->
 
-	<div class="admin-bar" data-admin-bar></div>
-
-	<!-- /* barre admin */ -->
-
-	<!-- /* page modale 1 */ -->
-
-
-	<aside id="modal1" class="modal" aria-hidden="true" style="display: none">
-		<div class="modal-wrapper">
-			<h3>Galerie photo</h3>
-			<div class="modal-close" data-modal="close">
-				<div class="modal-close-barre"></div>
-				<div class="modal-close-barre"></div>
-			</div>
-			<div class="gallery-modifier"></div>
-			<div class="bar"></div>
-			<ul>
-				<li><input class="ajouter" type="button" value="Ajouter une photo" data-modal="modal2"></li>
-				<li><input class="supprimer" type="button" value="Supprimer la galerie"></li>
-			</ul>
-		</div>
-	</aside>
-
-
-
-	<!-- /* page modale 1 */ -->
-
-	<!-- /* page modale 2 */ -->
-
-	<aside id="modal2" class="modal" aria-hidden="true" style="display: none">
-		<div class="modal-wrapper">
-			<h3>Ajout photo</h3>
-			<div class="modal-close" data-modal="close">
-				<div class="modal-close-barre"></div>
-				<div class="modal-close-barre"></div>
-			</div>
-			<form action="./assets/Pages/login.html" method="get">
-				<div class="fileImage">
-					<div class="fileImage-form">
-						<i class="fa-regular fa-image"></i>
-						<label for="fileButton">+ Ajouter photo</label>
-						<input name="image" id="fileButton" type="file" accept="image/png, image/jpg" style="display: none;" data-file>
-						<p>jpg, png : 4mo max</p>
-					</div>
-					<div class="file-image" data-file-image></div>
-				</div>
-				<div class="descriptionFiltre" id="descriptionFiltre">
-					<h4>Titre</h4>
-					<input name="titre" type="text" id="titleFile">
-					<h4>Catégorie</h4>
-					<select name="categorie" data-select-category>
-						<option value="0"></option>
-					</select>
-				</div>
-			</form>
-			<div class="bar"></div>
-			<input type="submit" value="valider" data-input-valider>
-		</div>
-	</aside>
-
-	<!-- /* page modale 2 */ -->
-
-	<div class="container">
-		<header>
-
-			<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-			<nav>
-				<ul>
-					<li>projets</li>
-					<li>contact</li>
-					<li data-login="false">
-						<a href="./assets/Pages/login.html">login</a>
-					</li>
-					<li data-login="true">
-						logout
-					</li>
-
-
-					<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-				</ul>
-			</nav>
-
-		</header>
-
-		<div class="competence">
-			<div class="competence-titre">
-				<div class="competence-titre-title"></div>
-
-			</div>
-		</div>
-
-		<main>
-			<section id="introduction">
-				<figure>
-					<img src="./assets/images/sophie-bluel.png" alt="">
-				</figure>
-				<article>
-					<h2>Designer d'espace</h2>
-					<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la
-						livraison finale du chantier.</p>
-					<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les
-						couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du
-						chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
-					<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG,
-						décorateur(trice)</p>
-				</article>
-			</section>
-			<section id="portfolio">
-				<h2>Mes Projets</h2>
-				<ul class="filtre"></ul>
-				<div class="gallery"></div>
-			</section>
-			<section id="contact">
-				<h2>Contact</h2>
-				<p>Vous avez un projet ? Discutons-en !</p>
-				<form action="#" method="post">
-					<label for="name">Nom</label>
-					<input type="text" name="name" id="name">
-					<label for="email">Email</label>
-					<input type="email" name="email" id="email">
-					<label for="message">Message</label>
-					<textarea name="message" id="message" cols="30" rows="10"></textarea>
-					<input type="submit" value="Envoyer">
-				</form>
-			</section>
-		</main>
-
-		<div class="login">
-		</div>
-	</div>
-
-	
-	<footer>
-		<nav>
-			<ul>
-				<li>Mentions Légales</li>
-			</ul>
-		</nav>
-	</footer>
-
-
-
-	<script type="text/Javascript" src="./assets/Javascript/function.js"></script>
-	<script type="text/Javascript" src="./assets/Javascript/index.js"></script>
-
-</body>
-
+    <script src="./assets/javaScript/index.js"></script>
+  </body>
 </html>
