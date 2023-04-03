@@ -30,12 +30,8 @@ form.addEventListener("submit", function (e) {
         location.href = "../../index.html";
       } else {
         error.innerText = " Erreur dans l’identifiant ou le mot de passe";
-        // Efface le message d'erreur après un certain temps
-        function msgdelete() {
-          error.innerText = "";
         }
-        setTimeout(msgdelete, 50000); //Enlève message d'erreur après 50000 milisecondes (50 secondes)
       }
-    })
+    )
     .catch((err) => console.log(err)); 
 });

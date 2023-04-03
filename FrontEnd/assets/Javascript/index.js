@@ -127,7 +127,7 @@ fetch("http://localhost:5678/api/works").then((res) => {
               object.onclick = function () {
                 // Effacer la galerie
                 document.querySelector(".gallery").innerHTML = "";
-                // Afficher les œuvres de la catégorie sélectionnée
+                // Afficher les œuvres de la catégorie sélectionnée (filtre)
                 for (let i = 0; i <= numSlid; i++) {
                   if (data[i]?.category.name === category[count].name) {
                     info(data[i]);
@@ -169,7 +169,7 @@ if (localStorage.getItem("token")) {
   // La fonction modifier
   const modification = `
 
-<div>
+<div id="modeEdition">
 <i class="fa-regular fa-pen-to-square"></i>
 <p>Mode édition</p>  </div>`;
   edition.insertAdjacentHTML("afterbegin", modification);
@@ -217,8 +217,8 @@ if (localStorage.getItem("token")) {
               data[counter].id;
 
               console.log(`${data[counter]?.id}`);
-
               console.log(data[counter].id);
+
               // On supprime les éléments de la page correspondant au projet
               var element = document.getElementById(`B${data[counter].id}`);
               element?.remove();
@@ -303,6 +303,7 @@ if (localStorage.getItem("token")) {
   document
     .getElementById("modifier_model")
     .addEventListener("click", ouvre_modal);
+
 
   // Ajoute un événement "click" pour ouvrir le modal quand on clique sur la flèche de retour
   document.getElementById("left").addEventListener("click", ouvre_modal);
