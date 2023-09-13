@@ -152,7 +152,6 @@ fetch("http://localhost:5678/api/works").then((res) => {
 
 /////entrer a la page model
 if (localStorage.getItem("token")) {
-  let tableauId = [];
   //replacer le login par logout
   document.getElementById("login").innerText = "logout";
   //remove btn tous
@@ -328,7 +327,7 @@ if (localStorage.getItem("token")) {
     const page = document.getElementById("modal");
     page.style.display = "none";
     page.setAttribute("aria-hidden", "true");
-    page?.removeEventListener("click", ferme_modal);
+    page.removeEventListener("click", ferme_modal);
   }
 
   // Ajoute un événement "click" pour fermer le modal au bouton "model_fermer"
